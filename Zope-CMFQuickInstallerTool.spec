@@ -3,12 +3,12 @@
 Summary:	CMFQuickInstallerTool - a Zope product independent from the former CMFQuickInstaller
 Summary(pl):	CMFQuickInstallerTool - dodatek do Zope niezale¿ny od poprzedniego CMFQuickInstallera
 Name:		Zope-%{zope_subname}
-Version:	1.2.1
-Release:	2
+Version:	1.3
+Release:	1
 License:	GNU
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}_%{version}.tgz
-# Source0-md5:	baf0d7949c238ecfe604bdcfb2398de0
+# Source0-md5:	60fff6fd03d1ab586479940561d17985
 URL:		http://cvs.bluedynamics.org/viewcvs/CMFQuickInstallerTool/
 %pyrequires_eq	python-modules
 Requires:	CMF
@@ -35,7 +35,7 @@ czasie instalacji.
 %build
 cd %{zope_subname}
 rm -rf `find . -type d -name CVS`
-rm -f .cvsignore
+rm -rf {.cvsignore,debian}
 mkdir docs
 mv -f AUTHORS README.txt docs
 
