@@ -3,7 +3,7 @@
 %define		zope_subname	CMFQuickInstallerTool
 
 Summary:	CMFQuickInstallerTool is a Zope product independent from the former CMFQuickInstaller
-Summary(pl):	CMFQuickInstallerToolL jest dodatkiem do Zope niezale¿nym od formy CMFQuickInstaller
+Summary(pl):	CMFQuickInstallerTool jest dodatkiem do Zope niezale¿nym od formy CMFQuickInstaller
 Name:		Zope-%{zope_subname}
 Version:	1.0
 Release:	1
