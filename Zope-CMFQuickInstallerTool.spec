@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.python
 %define		zope_subname	CMFQuickInstallerTool
 Summary:	A Zope product independent from the former CMFQuickInstaller
 Summary(pl):	Dodatek do Zope niezale¿ny od poprzedniego CMFQuickInstallera
