@@ -4,7 +4,7 @@ Summary:	A Zope product independent from the former CMFQuickInstaller
 Summary(pl):	Dodatek do Zope niezale¿ny od poprzedniego CMFQuickInstallera
 Name:		Zope-%{zope_subname}
 Version:	1.4
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}_%{version}.tgz
@@ -34,13 +34,11 @@ czasie instalacji.
 %prep
 %setup -q -n %{zope_subname}
 
-rm -rf {forms,interfaces}/CVS
-
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
 
-cp -af {forms,interfaces,*.py,*.gif} $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -af {forms,interfaces,*.py,*.gif,version.txt,refresh.txt} $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
 %py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
@@ -66,5 +64,5 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS README.txt
+%doc AUTHORS README.txt ChangeLog DEPENDS
 %{_datadir}/%{name}
