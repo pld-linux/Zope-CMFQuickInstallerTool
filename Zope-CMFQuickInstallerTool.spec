@@ -1,20 +1,18 @@
 %include	/usr/lib/rpm/macros.python
-
 %define		zope_subname	CMFQuickInstallerTool
-
-Summary:	CMFQuickInstallerTool is a Zope product independent from the former CMFQuickInstaller
-Summary(pl):	CMFQuickInstallerTool jest dodatkiem do Zope niezale¿nym od formy CMFQuickInstaller
+Summary:	CMFQuickInstallerTool - a Zope product independent from the former CMFQuickInstaller
+Summary(pl):	CMFQuickInstallerTool - dodatek do Zope niezale¿ny od poprzedniego CMFQuickInstallera
 Name:		Zope-%{zope_subname}
 Version:	1.2.1
 Release:	1
 License:	GNU
 Group:		Development/Tools
-Source0:	http://switch.dl.sourceforge.net/sourceforge/collective/%{zope_subname}_%{version}.tgz
+Source0:	http://dl.sourceforge.net/collective/%{zope_subname}_%{version}.tgz
 # Source0-md5:	baf0d7949c238ecfe604bdcfb2398de0
 URL:		http://cvs.bluedynamics.org/viewcvs/CMFQuickInstallerTool/
 %pyrequires_eq	python-modules
-Requires:	Zope
 Requires:	CMF
+Requires:	Zope
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,9 +24,10 @@ CMFQuickInstaller. The main difference to CMFQuickInstaller the
 tracking of what a product creates during install.
 
 %description -l pl
-CMFQuickInstallerToolL jest dodatkiem do Zope niezale¿nym od formy
-CMFQuickInstaller. Dodatek w stosunku do CMFQuickInstaller umo¿liwa
-¶ledzenie zmian produktów podczas tworzenia instalacji.
+CMFQuickInstallerTool jest dodatkiem do Zope niezale¿nym od
+poprzedniego CMFQuickInstallera. G³ówna ró¿nica w stosunku do
+CMFQuickInstallera to mo¿liwo¶æ ¶ledzenia, co tworzy dany produkt w
+czasie instalacji.
 
 %prep
 %setup -q -c %{zope_subname}-%{version}
@@ -36,10 +35,9 @@ CMFQuickInstaller. Dodatek w stosunku do CMFQuickInstaller umo¿liwa
 %build
 cd %{zope_subname}
 rm -rf `find . -type d -name CVS`
-rm -rf .cvsignore
+rm -f .cvsignore
 mkdir docs
-mv -f AUTHORS README.txt docs/
-
+mv -f AUTHORS README.txt docs
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -60,8 +58,6 @@ rm -rf $RPM_BUILD_ROOT
 if [ -f /var/lock/subsys/zope ]; then
 	/etc/rc.d/init.d/zope restart >&2
 fi
-
-%preun
 
 %postun
 if [ -f /var/lock/subsys/zope ]; then
