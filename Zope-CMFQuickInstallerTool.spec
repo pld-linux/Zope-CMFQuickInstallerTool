@@ -9,6 +9,7 @@ Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}-%{version}.tgz
 # Source0-md5:	c31d26cbfb515fb90169aafe17f0bdfa
 URL:		http://sourceforge.net/projects/collective/
+BuildRequires:  python
 %pyrequires_eq	python-modules
 Requires:	Zope-CMF
 Requires:	Zope
