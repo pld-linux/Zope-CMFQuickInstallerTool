@@ -4,7 +4,7 @@ Summary:	CMFQuickInstallerTool - a Zope product independent from the former CMFQ
 Summary(pl):	CMFQuickInstallerTool - dodatek do Zope niezale¿ny od poprzedniego CMFQuickInstallera
 Name:		Zope-%{zope_subname}
 Version:	1.3
-Release:	3
+Release:	4
 License:	GPL
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}_%{version}.tgz
@@ -16,7 +16,7 @@ Requires:	Zope
 Requires(post,postun):	/usr/sbin/installzopeproduct
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Obsoletes:	CMF
+Conflicts:	CMF
 
 %define 	product_dir	/usr/lib/zope/Products
 
