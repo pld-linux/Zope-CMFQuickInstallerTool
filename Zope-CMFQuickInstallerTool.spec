@@ -2,12 +2,12 @@
 Summary:	A Zope product independent from the former CMFQuickInstaller
 Summary(pl):	Dodatek do Zope niezale¿ny od poprzedniego CMFQuickInstallera
 Name:		Zope-%{zope_subname}
-Version:	1.5.4
+Version:	1.5.5
 Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}-%{version}.tgz
-# Source0-md5:	503e8390683e5cfa749d1dd8d87c3569
+# Source0-md5:	8ed7f7922a2620e6692e39f01afe10f6
 URL:		http://sourceforge.net/projects/collective/
 BuildRequires:	python
 %pyrequires_eq	python-modules
