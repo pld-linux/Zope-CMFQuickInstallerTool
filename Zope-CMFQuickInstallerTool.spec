@@ -10,13 +10,14 @@ Source0:	http://plone.org/products/cmfquickinstallertool/releases/%{version}/%{z
 # Source0-md5:	1f662098e304c11167a2c5e8ed46eb14
 URL:		http://sourceforge.net/projects/collective/
 BuildRequires:	python
+BuildRequires:	rpmbuild(macros) >= 1.268
 %pyrequires_eq	python-modules
-Requires:	Zope-CMF
-Requires:	Zope
 Requires(post,postun):	/usr/sbin/installzopeproduct
+Requires:	Zope
+Requires:	Zope-CMF
+Conflicts:	CMF
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Conflicts:	CMF
 
 %define 	product_dir	/usr/lib/zope/Products
 
@@ -50,16 +51,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /usr/sbin/installzopeproduct %{_datadir}/%{name} %{zope_subname}
-if [ -f /var/lock/subsys/zope ]; then
-	/etc/rc.d/init.d/zope restart >&2
-fi
+%service -q zope restart
 
 %postun
 if [ "$1" = "0" ]; then
 	/usr/sbin/installzopeproduct -d %{zope_subname}
-	if [ -f /var/lock/subsys/zope ]; then
-		/etc/rc.d/init.d/zope restart >&2
-	fi
+	%service -q zope restart
 fi
 
 %files
