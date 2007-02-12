@@ -1,6 +1,6 @@
 %define		zope_subname	CMFQuickInstallerTool
 Summary:	A Zope product independent from the former CMFQuickInstaller
-Summary(pl.UTF-8):   Dodatek do Zope niezależny od poprzedniego CMFQuickInstallera
+Summary(pl.UTF-8):	Dodatek do Zope niezależny od poprzedniego CMFQuickInstallera
 Name:		Zope-%{zope_subname}
 Version:	1.5.7
 Release:	1
